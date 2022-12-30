@@ -1,0 +1,8 @@
+v1.0.0:
+    - Pigsync plugin
+v1.0.1:
+    - Create commits table
+    - v1.0.1_create_table_commits.php
+v1.0.2:
+    - Create changes table
+    - v1.0.2_create_table_changes.php

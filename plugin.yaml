@@ -1,0 +1,6 @@
+plugin:
+    name: 'utopigs.pigsync::lang.plugin.name'
+    description: 'utopigs.pigsync::lang.plugin.description'
+    author: Utopigs
+    icon: oc-icon-refresh
+    homepage: ''

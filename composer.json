@@ -1,0 +1,9 @@
+{
+    "name": "utopigs/pigsync-plugin",
+    "type": "october-plugin",
+    "description": "None",
+    "require": {
+        "composer/installers": "~1.0",
+        "knplabs/github-api": "3.0"
+    }
+}

@@ -1,1 +1,1 @@
-# octobercms-plugin-pigsync
+### PigSync Plugin
