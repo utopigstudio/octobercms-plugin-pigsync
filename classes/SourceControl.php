@@ -35,7 +35,7 @@ class SourceControl
                 return $user->id;
 
             case static::AUTHOR_NAME:
-                return $user->full_name;
+                return trim($user->full_name) !== '' ? $user->full_name : $user->login;
 
             case static::AUTHOR_EMAIL:
                 return $user->email;

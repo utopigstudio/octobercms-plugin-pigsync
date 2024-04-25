@@ -6,3 +6,4 @@ v1.0.1:
 v1.0.2:
     - Create changes table
     - v1.0.2_create_table_changes.php
+v1.0.3: Fix bug when user has no name (use login)
