@@ -95,25 +95,31 @@ class SourceControl
         foreach ($commits as $commit) {
             foreach ($commit->changes as $change) {
                 $filename = substr($change->filename, strlen($base_path)+1);
-                $oldFile = $client->api('repo')->contents()->show(
-                    $this->team,
-                    $this->repository,
-                    $filename,
-                    $this->branch,
-                );
-                $client->api('repo')->contents()->update(
-                    $this->team,
-                    $this->repository,
-                    $filename,
-                    $change->payload,
-                    $commit->message,
-                    $oldFile['sha'],
-                    $this->branch,
-                    [
-                        'name' => $commit->author_name,
-                        'email' => $commit->author_email
-                    ]
-                );
+                try {
+                    $oldFile = $client->api('repo')->contents()->show(
+                        $this->team,
+                        $this->repository,
+                        $filename,
+                        $this->branch,
+                    );
+                } catch (\Exception $e) {
+                    $oldFile = null;
+                }
+                if ($oldFile) {
+                    $client->api('repo')->contents()->update(
+                        $this->team,
+                        $this->repository,
+                        $filename,
+                        $change->payload,
+                        $commit->message,
+                        $oldFile['sha'],
+                        $this->branch,
+                        [
+                            'name' => $commit->author_name,
+                            'email' => $commit->author_email
+                        ]
+                    );
+                }
             }
 
             $commit->processed = 1;
